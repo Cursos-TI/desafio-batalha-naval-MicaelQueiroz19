@@ -14,12 +14,12 @@ int main() {
 
     printf("TABULEIRO BATALHA NAVAL\n");
     printf("   ");
-    for (int k = 0; k < 10; k++){ // Imprime os dados das colunas
-        printf("%c ", linha[k]); // Exibe os nomes das colunas
+    for (int k = 0; k < 10; k++){ // Imprime os dados das colunas.
+        printf("%c ", linha[k]); // Exibe os nomes das colunas.
     }
     printf("\n");
 
-    for (int i = 0; i < 10; i++) {  // Imprime os dados das linhas e preenche o tabuleiro com "Água - 0"
+    for (int i = 0; i < 10; i++) {  // Imprime os dados das linhas e preenche o tabuleiro com "Água - 0".
         printf("%2d ", i + 1); // // Exibe os números das linhas.
         for (int j = 0; j < 10; j++) {
             tabuleiro[i][j] = 0;
@@ -30,17 +30,23 @@ int main() {
     // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
 
     
-    for (int i = 6; i < 7; i++){ // Posiciona um navio de 3 posições na horizontal em 7-H-I-J
-        for (int j = 7; j < 10; j++){
+    for (int i = 4; i < 5; i++){ // Posiciona um navio de 3 posições na HORIZONTAL em 5-H-I-J.
+        for (int j = 7; j < 10; j++){ // Fixa a Linha.
+            if (i > 10 || i < 0 || j > 10 || j < 0){ // Exibe erro se coordenadas ultrapassarem limite do tabuleiro.
+                printf("ERRO - Coordenadas Ultrapassam limite do Tabuleiro\n");
+                break;
+            }
             tabuleiro[i][j] = 3;
-            
         }
     }
 
-    for (int i = 2; i < 5; i++){ // Posiciona um navio de 3 posições na vertical em E-3-4-5
-        for (int j = 4; j < 5; j++){
-            if (tabuleiro[i][j] == 3){
-                printf("ERRO ");
+    for (int i = 2; i < 5; i++){ // Posiciona um navio de 3 posições na VERTICAL em E-3-4-5.
+        for (int j = 4; j < 5; j++){ // Fixa a Coluna.
+            if (i > 10 || i < 0 || j > 10 || j < 0){ // Exibe erro se coordenadas ultrapassarem limite do tabuleiro.
+                printf("ERRO - Coordenadas Ultrapassam limite do Tabuleiro\n");
+                break;
+            }else if (tabuleiro[i][j] == 3){ // Exibe erro se segundo navio ocupar alguma posição do primeiro.
+                printf("ERRO - Campo já preenchido com Navio\n");
                 break;
             }
             tabuleiro[i][j] = 3;
