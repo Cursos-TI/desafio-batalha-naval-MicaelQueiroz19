@@ -29,14 +29,20 @@ int main() {
     }
     // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
 
+    
     for (int i = 6; i < 7; i++){ // Posiciona um navio de 3 posições na horizontal em 7-H-I-J
         for (int j = 7; j < 10; j++){
             tabuleiro[i][j] = 3;
+            
         }
     }
 
     for (int i = 2; i < 5; i++){ // Posiciona um navio de 3 posições na vertical em E-3-4-5
         for (int j = 4; j < 5; j++){
+            if (tabuleiro[i][j] == 3){
+                printf("ERRO ");
+                break;
+            }
             tabuleiro[i][j] = 3;
         }
     }
