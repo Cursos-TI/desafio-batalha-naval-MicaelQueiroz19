@@ -64,15 +64,25 @@ int main() {
 
     for (int i = 2; i < 5; i++){ // Imprimir diagonal 3C-4D-5E
         for (int j = 2; j < 5; j++){
+            if (i > 10 || i < 0 || j > 10 || j < 0){ // Exibe erro se coordenadas ultrapassarem limite do tabuleiro.
+                printf("ERRO - Coordenadas Ultrapassam limite do Tabuleiro\n");
+                break;
+            } else if (tabuleiro[i][j] == 3){ // Exibe erro se segundo navio ocupar alguma posição do primeiro.
+                printf("ERRO - Campo já preenchido com Navio\n");
+                break;
+            }
             if (i == j){
                 tabuleiro[i][j] = 3;
-                printf("%d %d\n", i, j);
             }
         }
     }
 
     for (int i = 1; i < 4; i++){ // Imprimir diagonal 3C-4D-5E
         for (int j = 0; j < 10; j++){
+            if (i > 10 || i < 0 || j > 10 || j < 0){ // Exibe erro se coordenadas ultrapassarem limite do tabuleiro.
+                printf("ERRO - Coordenadas Ultrapassam limite do Tabuleiro\n");
+                break;
+            } 
             if (i + j == 9){
                 tabuleiro[i][j] = 3;
                 printf("%d %d\n", i, j);
