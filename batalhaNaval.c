@@ -40,7 +40,7 @@ int main() {
         }
     }
 
-    for (int i = 2; i < 5; i++){ // Posiciona um navio de 3 posições na VERTICAL em E-3-4-5.
+    for (int i = 6; i < 9; i++){ // Posiciona um navio de 3 posições na VERTICAL em E-7-8-9.
         for (int j = 4; j < 5; j++){ // Fixa a Coluna.
             if (i > 10 || i < 0 || j > 10 || j < 0){ // Exibe erro se coordenadas ultrapassarem limite do tabuleiro.
                 printf("ERRO - Coordenadas Ultrapassam limite do Tabuleiro\n");
@@ -54,7 +54,33 @@ int main() {
     }
     
 
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+
+    
+
+    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
+    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
+    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
+    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
+
+    for (int i = 2; i < 5; i++){ // Imprimir diagonal 3C-4D-5E
+        for (int j = 2; j < 5; j++){
+            if (i == j){
+                tabuleiro[i][j] = 3;
+                printf("%d %d\n", i, j);
+            }
+        }
+    }
+
+    for (int i = 1; i < 4; i++){ // Imprimir diagonal 3C-4D-5E
+        for (int j = 0; j < 10; j++){
+            if (i + j == 9){
+                tabuleiro[i][j] = 3;
+                printf("%d %d\n", i, j);
+            }
+        }
+    }
+
+    // Exibe Tabuleiro com Navios.
     printf("\n\n");
     printf("TABULEIRO APÓS INSERÇÃO DOS NAVIOS\n");
     printf("   ");
@@ -70,12 +96,6 @@ int main() {
         }
         printf("\n");
     }
-    
-
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
 
     // Nível Mestre - Habilidades Especiais com Matrizes
     // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
